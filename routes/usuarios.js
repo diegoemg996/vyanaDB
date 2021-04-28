@@ -25,6 +25,7 @@ router.put('/:id', [
 
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    check('apellido', 'El apellido es obligatorio').not().isEmpty(),
     check('password', 'El password debe de ser más de 6 letras').isLength({min: 6}),
     check('correo', 'El correo no es valido').isEmail(),
     check('correo').custom(emailExiste),
