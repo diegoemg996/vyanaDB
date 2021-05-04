@@ -13,9 +13,6 @@ router.post('/agregar/:id',[
     validarCampos
 ],entradaProducto);
 
-router.post('/agregar/:id',[
-    validarJWT,
-    validarCampos
-],entradaProducto);
+
 
 module.exports = router;
