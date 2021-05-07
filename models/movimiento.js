@@ -8,7 +8,8 @@ const MovimientoSchema = Schema({
     },
     cantidad:{
         type: Number,
-        default: 0
+        default: 0,
+        required: true
     },
     usuario: {
         type: Schema.Types.ObjectId,

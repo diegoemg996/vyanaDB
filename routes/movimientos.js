@@ -9,7 +9,10 @@ const router = Router();
 
 
 router.post('/agregar/:id',[
-    validarJWT,
+    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    check('cantidad', 'La cantidad es obligatoria').not().isEmpty(),
+    check('usuario', 'El usuario es obligatorio es obligatoria').not().isEmpty(),
+    check('tipo', 'El tipo es obligatorio').not().isEmpty(),
     validarCampos
 ],entradaProducto);
 
