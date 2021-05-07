@@ -4,14 +4,12 @@ const {entradaProducto} = require('../controllers/movimientos')
 
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
-/* const { validarJWT } = require('../middlewares/validar-jwt'); */
 
 const router = Router();
 
 
 router.post('/agregar/:id',[
     validarJWT,
-    check('cantidad', 'La cantidad es obligatoria').not().isEmpty(),
     validarCampos
 ],entradaProducto);
 
