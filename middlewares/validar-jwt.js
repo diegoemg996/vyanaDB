@@ -13,7 +13,6 @@ const validarJWT = async(req, res = response, next) =>{
     }
 
     try {
-        const token = authHeader.split(' ')[1]
         const {uid} = jwt.verify(token, process.env.SECRETKEY);
 
         const usuario = await Usuario.findById(uid);
