@@ -4,7 +4,7 @@ const Usuario = require('../models/usuario');
 
 const validarJWT = async(req, res = response, next) =>{
 
-    const token = req.header('x-token');
+    const token = req.header('Authorization');
 
     if(!token){
         return res.status(401).json({
@@ -13,7 +13,6 @@ const validarJWT = async(req, res = response, next) =>{
     }
 
     try {
-    
         const {uid} = jwt.verify(token, process.env.SECRETKEY);
 
         const usuario = await Usuario.findById(uid);
