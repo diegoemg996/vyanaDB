@@ -4,7 +4,7 @@ const Usuario = require('../models/usuario');
 
 const validarJWT = async(req, res = response, next) =>{
 
-    const token = req.header('token');
+    let token = req.header('Authorization');
 
     if(!token){
         return res.status(401).json({
@@ -13,6 +13,9 @@ const validarJWT = async(req, res = response, next) =>{
     }
 
     try {
+
+        token = token.replace('Bearer ', '')
+        console.log(token)
     
         const {uid} = jwt.verify(token, process.env.SECRETKEY);
 
@@ -37,7 +40,7 @@ const validarJWT = async(req, res = response, next) =>{
     } catch (error) {
         console.log(error);
         res.status(401).json({
-            msg: 'Token no válido'
+            msg: `${error}`
         })
     }
 

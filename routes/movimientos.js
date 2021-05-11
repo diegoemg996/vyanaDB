@@ -10,12 +10,8 @@ const router = Router();
 
 router.post('/agregar/:id',[
     validarJWT,
-    validarCampos
+    validarCampos 
 ],entradaProducto);
 
-router.post('/agregar/:id',[
-    validarJWT,
-    validarCampos
-],entradaProducto);
 
 module.exports = router;

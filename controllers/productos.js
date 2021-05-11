@@ -4,7 +4,7 @@ const Producto = require('../models/producto');
 const obtenerProductos = async(req, res = response)=>{
    
     const [total, productos] = await Promise.all([
-        Producto.count({estado: true}),
+        Producto.countDocuments({estado: true}),
         Producto.find({estado: true})
             .populate('usuario', 'nombre')
            

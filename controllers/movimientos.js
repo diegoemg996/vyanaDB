@@ -5,6 +5,7 @@ const Producto = require("../models/producto");
 
 const entradaProducto = async(req, res = response) =>{
 
+
     const {cantidad} = req.body;
 
     const {id} = req.params;
