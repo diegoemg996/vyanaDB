@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 
 const MovimientoSchema = Schema({
-    nombre:{
+    producto:{
         type: Schema.Types.ObjectId,
         ref: 'Producto',
         required: true

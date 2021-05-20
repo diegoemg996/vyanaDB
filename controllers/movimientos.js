@@ -2,9 +2,16 @@ const { response } = require("express");
 const Movimiento = require("../models/movimiento");
 const Producto = require("../models/producto");
 
+const obtenerMovimientos = async(req, res = response) =>{
+    const movimientos = await Movimiento.find()
+                        
+    res.json({
+        movimientos
+    })
+}
+
 
 const entradaProducto = async(req, res = response) =>{
-
 
     const {cantidad} = req.body;
 
@@ -30,5 +37,6 @@ const entradaProducto = async(req, res = response) =>{
 }
 
 module.exports = {
-    entradaProducto
+    entradaProducto,
+    obtenerMovimientos
 }
