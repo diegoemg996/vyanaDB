@@ -18,6 +18,10 @@ const MovimientoSchema = Schema({
     tipo:{
         type: String,
         required: true
+    },
+    fecha:{
+        type: Date,
+        default: Date.now
     }
 })
 

@@ -3,7 +3,7 @@ const Movimiento = require("../models/movimiento");
 const Producto = require("../models/producto");
 
 const obtenerMovimientos = async(req, res = response) =>{
-    const movimientos = await Movimiento.find()
+    const movimientos = await Movimiento.find().populate('producto', 'nombre').populate('usuario', 'nombre');
                         
     res.json({
         movimientos
@@ -20,9 +20,9 @@ const entradaProducto = async(req, res = response) =>{
     await Producto.findOneAndUpdate({_id :id}, {$inc : {'cantidad' : cantidad}});
 
     const data = {
-        nombre: id,
+        producto: id,
         cantidad,
-        tipo: "entrada",
+        tipo: cantidad > 0 ? "entrada" : "salida",
         usuario: req.usuario._id
 
     }
