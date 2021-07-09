@@ -12,6 +12,7 @@ class Server {
         this.authPath = '/api/auth';
         this.productosPath = '/api/productos';
         this.movimientosPath = '/api/movimientos';
+        this.remisionesPath = '/api/remisiones';
 
         this.conectarDB();
 
@@ -46,6 +47,7 @@ class Server {
         this.app.use( this.usuariosPath, require('../routes/usuarios'));
         this.app.use( this.productosPath, require('../routes/productos'));
         this.app.use( this.movimientosPath, require('../routes/movimientos'));
+        this.app.use( this.remisionesPath, require('../routes/remisiones'));
     }
 
     listen() {
